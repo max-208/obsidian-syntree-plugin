@@ -1,0 +1,10 @@
+{
+	"id": "syntree",
+	"name": "Syntax Tree Generator",
+	"version": "1.0.0",
+	"minAppVersion": "1.13.0",
+	"description": "Generate a syntax tree from text in your documents.",
+	"author": "Maxime DANIEL",
+	"authorUrl": "https://github.com/max-208",
+	"isDesktopOnly": true
+}
