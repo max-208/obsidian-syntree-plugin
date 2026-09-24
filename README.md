@@ -7,9 +7,28 @@ this project is a port of [syntree](https://github.com/mshang/syntree) (also kno
 
 Simply write your syntax tree in labelled bracket notation, and sourround it by three ticks (`) above and below, alongside the "syntree" indicator, like in the following example :
 
-```syntree
-[S[NP[N Alice]][VP[V is][NP[N'[N a student][PP^ of physics
-```
+![example text](./images/example_text.png)
+![example diagram](./images/example_diagram.png)
 
-![example text](example_text.png)
-![example diagram](example_diagram.png)
+## features
+
+add a node : `[parent child]`
+![line](./images/line.png)
+
+use nesting : `[parent [parent child]]`
+![nesting](./images/nesting.png)
+
+add multiple child nodes : `[root [parent child] [parent child]]`
+![multiple child nodes](./images/multiple_child.png)
+
+add a triangle : `[parent^ child]`
+![triangle](./images/triangle.png)
+
+add a triangle : `[parent^ child]`
+![triangle](./images/triangle.png)
+
+add a silent head : `[root \0]`
+![silent head](./images/silent_head.png)
+
+use brackets in node names : `[root {child}]`
+![brackets in node](./images/brackets.png)

@@ -378,6 +378,9 @@ function parse(str: string): Node {
 			});
 		str = str.replace(/^\s+/, "");
 		str = str.replace(/\s+$/, "");
+		str = str.replace(/\\0/g, "Ø"); // Empty head substution
+		str = str.replace(/{/g, "["); // Bracket substitution
+		str = str.replace(/}/g, "]"); // Bracket substitution
 		n.value = str;
 		return n;
 	}
