@@ -1,4 +1,4 @@
-import { App, debounce, PluginSettingTab, Setting } from 'obsidian';
+import { App, PluginSettingTab, Setting, ToggleComponent } from 'obsidian';
 import SyntaxTreeGenerator from './main';
 
 export interface SyntaxTreeGeneratorSettings {
@@ -23,9 +23,9 @@ export class SyntaxTreeGeneratorSettingsTab extends PluginSettingTab {
 				name: 'Terminal lines',
 				desc: 'If enabled, terminal nodes are treated exactly the same as non-terminals with respect to placement and line drawing. Otherwise terminal nodes are placed on a new line after their parents, and no lines will be drawn between them.',
 				default: DEFAULT_SETTINGS.terminal_lines,
-				render: (setting) =>{
+				render: (setting:Setting) =>{
 					setting
-			 		.addToggle((toggle) =>
+			 		.addToggle((toggle:ToggleComponent) =>
 			 			toggle
 			 				.setValue(this.plugin.settings.terminal_lines)
 			 				.onChange(async (value: boolean) => {

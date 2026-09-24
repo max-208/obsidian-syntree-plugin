@@ -4,7 +4,7 @@ import {
 	SyntaxTreeGeneratorSettings,
 	SyntaxTreeGeneratorSettingsTab,
 } from './settings';
-import go from './syntree.cjs';
+import go from './syntree';
 
 export default class SyntaxTreeGenerator extends Plugin {
 	settings!: SyntaxTreeGeneratorSettings;
@@ -14,8 +14,6 @@ export default class SyntaxTreeGenerator extends Plugin {
 		await this.loadSettings();
 
 		this.addSettingTab(new SyntaxTreeGeneratorSettingsTab(this.app, this));
-
-		this.register
 
 		function generateDiagram(settings:SyntaxTreeGeneratorSettings, canvas:HTMLCanvasElement, source:string ){
 			
