@@ -276,7 +276,7 @@ export default function go(
 
 
 	// Clean up the string
-	str = str.replace(/^\s+/, "");
+	str = str.replace(/^\s+/, "").replace(/\s+/g, " ");
 	let open = 0;
 	for (let i = 0; i < str.length; i++) {
 		if (str[i] == "[") open++;
@@ -382,17 +382,31 @@ function parse(str: string): Node {
 		str = str.replace(/{/g, "["); // Bracket substitution
 		str = str.replace(/}/g, "]"); // Bracket substitution
 		n.value = str;
+
+		// Check for movement destination
+		n.value = n.value.replace(/_(\w+)$/,
+			function(_match: string, label: string): string {
+				n.label = label;
+				if (n.label.search(/^\d+$/) != -1)
+					return subscriptify(n.label);
+				return "";
+		});
+
 		return n;
 	}
 
 	let i = 1;
 	while ((str[i] != " ") && (str[i] != "[") && (str[i] != "]")) i++;
 	n.value = str.substring(1, i)
+
+	// check for triangle
 	n.value = n.value.replace(/\^/, 
 		function (): string {
 			n.starred = true;
 			return "";
 		});
+
+	// Check for movement destination
 	n.value = n.value.replace(/_(\w+)$/,
 		function(_match: string, label: string): string {
 			n.label = label;

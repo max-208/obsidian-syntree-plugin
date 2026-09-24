@@ -51,3 +51,28 @@ add a silent head : `[root \0]`
 
 use brackets in node names : `[root {child}]`
 ![brackets in node](./images/brackets.png)
+
+you can even use space and intendations in your labelled bracket notation
+
+```syntree
+[CP [C'
+	[C+V+T_2 \0+BE+{pres}]
+	[TP
+		[DP^ Sarah]
+		[T'
+			tT<2>_1
+			[VP [V'
+				tV<1>
+				[VP
+					[V'
+						[V eating]
+						[DP^ fruit]
+					]
+				]
+			]]
+		]
+	]
+]]
+```
+becomes
+![complex example](./images/complex.png)
